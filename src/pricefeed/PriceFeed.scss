@@ -1,0 +1,256 @@
+@import "../global.scss";
+
+.data {
+  margin-top: 69px;
+  display: flex;
+
+  @media screen and (max-width: 420px) {
+    width: 100%;
+  }
+  .selection-bar {
+    width: 270px;
+    height: 100%;
+    padding: 0 40px 0 50px;
+
+    h1 {
+      width: 100%;
+      font-size: 24px;
+      font-weight: 600;
+    }
+    .selections {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+
+      .selection {
+        display: flex;
+        cursor: pointer;
+        &.selected {
+          border: 1px solid $highlight-color;
+        }
+
+        .icon {
+          width: 64px;
+          height: 64px;
+          border-radius: 4px;
+          background-size: contain;
+          background-repeat: no-repeat;
+        }
+        .selection-labels {
+          display: flex;
+          flex-direction: column;
+          align-items: baseline;
+          justify-content: space-around;
+          margin-left: 15px;
+        }
+      }
+    }
+  }
+  // .selection-bar {
+  //   display: flex;
+  //   flex-direction: row;
+  //   height: 52px;
+  //   padding: 12px 0;
+  //   justify-content: space-between;
+  //   width: 100%;
+  //   background-color: $widget-base-color;
+  //   @media screen and (max-width: 420px) {
+  //     padding: 12px 0 0 0;
+  //   }
+
+  //   .selections {
+  //     width: 88%;
+  //     display: flex;
+  //     overflow: hidden;
+
+  //     &.searching {
+  //       .selection {
+  //         width: 0;
+  //         margin: 0;
+  //         &.selected {
+  //           width: 0;
+  //           margin: 0;
+  //           border: none;
+  //         }
+  //       }
+  //     }
+
+  //     .search-selections {
+  //       display: flex;
+  //       width: 40px;
+  //       height: 40px;
+  //       border: 1px solid $primary-color;
+  //       border-radius: 40px;
+  //       margin-left: 24px;
+  //       cursor: pointer;
+  //       transition: 0.25s width linear;
+  //       &.expanded {
+  //         width: 100%;
+  //       }
+
+  //       .search-icon-wrapper {
+  //         width: 30px;
+  //         .search-icon {
+  //           margin: 10px 0 0 11px;
+  //         }
+  //       }
+  //       .search-input {
+  //         width: calc(100% - 10px);
+  //         margin-left: 10px;
+  //         border-top-right-radius: 40px;
+  //         border-bottom-right-radius: 40px;
+  //         border: none;
+  //         font-size: 24px;
+  //       }
+  //     }
+  //     .selection {
+  //       width: 40px;
+  //       height: 40px;
+  //       background-color: $primary-color;
+  //       border-radius: 40px;
+  //       margin: 1px 0 0 16px;
+  //       overflow: hidden;
+  //       cursor: pointer;
+  //       &.selected {
+  //         border: 5px solid $secondary-color;
+  //         height: 30px;
+  //         width: 30px;
+  //         cursor: auto;
+  //       }
+  //       .icon {
+  //         height: 100%;
+  //         width: 100%;
+  //         background-size: contain;
+  //       }
+  //     }
+  //   }
+  //   .see-all {
+  //     font-weight: 500;
+  //     margin: 9px 30px 0 0;
+  //   }
+  // }
+  // .dropdown {
+  //   width: 100%;
+  //   background-color: $widget-base-color;
+  //   .dropdown-option-inner {
+  //     display: flex;
+  //     justify-content: space-between;
+  //     align-items: center;
+  //     height: 64px;
+  //     background-color: $tertiary-color;
+  //     margin: 0 24px 16px 24px;
+  //     padding: 0 24px;
+  //     border-radius: 16px;
+  //     .percent-change {
+  //       &.neg {
+  //         color: $invalid-color;
+  //       }
+  //       &.pos {
+  //         color: $gain-color;
+  //       }
+  //     }
+  //     .indices-index {
+  //       font-weight: 700;
+  //     }
+  //     .icon {
+  //       width: 40px;
+  //       height: 40px;
+  //       background-color: $primary-color;
+  //       border-radius: 40px;
+  //       margin: 1px 0 0 16px;
+  //       background-size: contain;
+  //     }
+  //   }
+  // }
+  .chart {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: $widget-base-color;
+    margin-top: 16px;
+
+    .banner {
+      height: 268px;
+      width: 100%;
+      background: url("./jpegs/bayc-banner.jpg");
+    }
+
+    .index {
+      display: flex;
+      justify-content: space-between;
+      @media screen and (max-width: 420px) {
+        flex-direction: column;
+      }
+      .title {
+        display: flex;
+        margin: 30px 0 0 25px;
+        .icon {
+          width: 40px;
+          height: 40px;
+          background-color: $primary-color;
+          border-radius: 40px;
+          margin: 1px 0 0 16px;
+          background-size: contain;
+        }
+        .index-title {
+          margin-left: 15px;
+          .index-name {
+            font-size: 16px;
+            font-weight: 700;
+          }
+          .index {
+            color: $secondary-color;
+            font-weight: 600;
+          }
+        }
+      }
+      .prices {
+        display: flex;
+        .price {
+          text-align: center;
+          margin: 30px 25px 0 25px;
+          font-size: 12px;
+          font-weight: 600;
+          color: $secondary-color;
+          .figure {
+            font-size: 16px;
+            color: $highlight-color;
+            &.bold {
+              font-weight: 700;
+            }
+            &.neg {
+              color: $invalid-color;
+            }
+            &.pos {
+              color: $gain-color;
+            }
+          }
+        }
+      }
+    }
+    .chart-tabs {
+      display: flex;
+      margin: 30px 0 0 25px;
+      .tab {
+        padding: 7px;
+        margin: 4px;
+        cursor: pointer;
+        &.selected {
+          font-weight: 700;
+          cursor: auto;
+        }
+      }
+    }
+    .chart-content {
+      height: 375px;
+      .hoverPrice {
+        position: absolute;
+        right: 40%;
+        font-size: 32px;
+      }
+      .details {
+        margin: 20px;
+      }
+    }
+  }
+}

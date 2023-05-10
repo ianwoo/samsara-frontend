@@ -1,0 +1,271 @@
+@import "../global.scss";
+
+.cycler {
+  display: flex;
+  background-color: $base-color;
+  min-height: calc(100vh - 88px);
+  padding-bottom: 30px;
+
+  .assets {
+    display: flex;
+    flex-direction: column;
+    width: 33%;
+    background-color: $widget-base-color;
+    margin: 24px 0 0 24px;
+    padding: 30px 0 0 24px;
+    .total-balance {
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .sETH {
+      display: flex;
+      align-items: center;
+      .sETH-icon {
+        padding-top: 6px;
+      }
+      .totalCollateral {
+        font-size: 40px;
+        font-weight: 700;
+        margin-left: 10px;
+      }
+    }
+    .health-gauge {
+      display: flex;
+      flex-direction: column;
+      margin: 20px 24px 0 0;
+      align-items: center;
+      .collateral-ratio {
+        font-size: 16px;
+        font-weight: 700;
+      }
+      .gauge {
+        width: 50%;
+        font-size: 32px;
+        margin-top: 24px;
+
+        .body {
+          width: 100%;
+          height: 0;
+          padding-bottom: 50%;
+          background: $primary-color;
+          position: relative;
+          border-top-left-radius: 100% 200%;
+          border-top-right-radius: 100% 200%;
+          overflow: hidden;
+          .fill {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: inherit;
+            height: 100%;
+            transform-origin: center top;
+            transform: rotate(0.25turn);
+            transition: transform 0.2s ease-out, background-color 0.2s ease-out;
+          }
+          .cover {
+            width: 95%;
+            height: 190%;
+            background: $widget-base-color;
+            border-radius: 50%;
+            position: absolute;
+            top: 5%;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-bottom: 25%;
+            box-sizing: border-box;
+            .ratio {
+              font-weight: 700;
+              color: $highlight-color;
+              padding-bottom: 20px;
+            }
+          }
+        }
+      }
+      .gauge-label {
+        display: flex;
+        justify-content: space-between;
+        width: 50%;
+        opacity: 0.5;
+      }
+    }
+    .divider {
+      width: calc(100% - 24px);
+      height: 3px;
+      background-color: $base-color;
+      margin-top: 30px;
+    }
+    .title {
+      display: flex;
+      justify-content: space-between;
+      margin: 24px 24px 0 0;
+      .title-label {
+        .label {
+          font-weight: 700;
+        }
+        .rate {
+          font-weight: 500;
+          opacity: 0.5;
+        }
+      }
+      .total {
+        font-weight: 700;
+      }
+    }
+    .asset {
+      display: flex;
+      justify-content: space-between;
+      margin: 16px 24px 16px 0;
+      .asset-type {
+        display: flex;
+        .asset-icon {
+          padding-top: 7px;
+        }
+        .asset-name {
+          margin-left: 7px;
+          .name {
+            font-size: 16px;
+            font-weight: 700;
+          }
+          .usd {
+            font-size: 12px;
+          }
+        }
+      }
+      .asset-amt {
+        text-align: right;
+        .amt {
+          font-size: 16px;
+          font-weight: 700;
+        }
+        .usd {
+          font-size: 12px;
+        }
+      }
+    }
+    .subtotal {
+      display: flex;
+      justify-content: space-between;
+      width: calc(100% - 24px);
+      margin-bottom: 8px;
+      font-size: 16px;
+      .label {
+        margin-left: 40px;
+      }
+    }
+    .where-to-buy {
+      width: calc(100% - 24px);
+      color: $invalid-color;
+      text-align: center;
+      margin-top: 16px;
+    }
+  }
+
+  .action-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 66%;
+    background-color: $widget-base-color;
+    margin: 24px 24px 0 24px;
+    padding: 65px 0 0 24px;
+
+    .modal {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .tabs {
+      @include tabs(50%, 33%, 0);
+    }
+    .info-text {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 65px 0;
+      .stakingAPR {
+        font-size: 32px;
+        font-weight: 700;
+      }
+      .action-description {
+        font-size: 16px;
+      }
+      .rate {
+        font-size: 12px;
+        margin-top: 3px;
+      }
+    }
+    .action-amounts {
+      display: flex;
+      flex-direction: column;
+      width: 50%;
+      left: 25%;
+      margin-bottom: 60px;
+      .amount {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        .label {
+          display: flex;
+          flex-direction: row;
+          .text {
+            display: flex;
+            flex-direction: column;
+            margin-left: 11px;
+            .bold {
+              font-size: 16px;
+              font-weight: 700;
+            }
+            .subtext {
+              font-size: 12px;
+              font-weight: 500;
+              color: $secondary-color;
+            }
+          }
+        }
+        .bigbold {
+          font-size: 32px;
+          font-weight: 700;
+          text-align: right;
+        }
+        .input {
+          display: flex;
+          width: 66%;
+          transform: translateX(53px);
+          .bigbold {
+            width: 100%;
+            &.invalid {
+              color: $invalid-color;
+            }
+          }
+          .max {
+            width: 60px;
+            height: 24px;
+            border: 2px solid $secondary-color;
+            border-radius: 8px;
+            margin: 9px 0 0 3px;
+          }
+        }
+      }
+      .arrow {
+        display: flex;
+        padding-left: 9px;
+      }
+      .postActionRatio {
+        font-size: 16px;
+        font-weight: 700;
+        margin: 32px 0;
+      }
+      .confirm {
+        width: 100%;
+        height: 50px;
+        background-color: $highlight-color;
+        color: $widget-base-color;
+        font-size: 16px;
+        font-weight: 700;
+      }
+    }
+  }
+}

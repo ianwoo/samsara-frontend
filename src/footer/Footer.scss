@@ -1,0 +1,70 @@
+.footer {
+  .footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+    width: calc(100% - 30vw);
+    background: #181818;
+    padding: 0 15vw;
+
+    .footer-menu {
+      color: rgba(255, 255, 255, 0.65);
+      display: flex;
+      gap: 24px;
+    }
+  }
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+    width: calc(100% - 30vw);
+    background: #18191d;
+    padding: 0 15vw;
+
+    span {
+      color: rgba(255, 255, 255, 0.65);
+    }
+
+    .icons-menu {
+      color: rgba(255, 255, 255, 0.65);
+      display: flex;
+      gap: 24px;
+      .icon {
+        width: 17px;
+        height: 17px;
+        &.telegram {
+          background: url("./pngs/telegram.png");
+          background-size: contain;
+          background-repeat: no-repeat;
+        }
+        &.discord {
+          background: url("./pngs/discord.png");
+          background-size: contain;
+          background-repeat: no-repeat;
+        }
+        &.twitter {
+          background: url("./pngs/twitter.png");
+          background-size: contain;
+          background-repeat: no-repeat;
+        }
+        &.medium {
+          background: url("./pngs/medium.png");
+          background-size: contain;
+          background-repeat: no-repeat;
+        }
+        &.reddit {
+          background: url("./pngs/reddit.png");
+          background-size: contain;
+          background-repeat: no-repeat;
+        }
+        &.github {
+          background: url("./pngs/github.png");
+          background-size: contain;
+          background-repeat: no-repeat;
+        }
+      }
+    }
+  }
+}

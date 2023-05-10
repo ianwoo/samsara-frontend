@@ -1,0 +1,367 @@
+@import "../global.scss";
+
+.exchange {
+  background-color: $base-color;
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  @media screen and (max-width: 420px) {
+    height: 160vh;
+  }
+
+  .main {
+    display: flex;
+    height: 600px;
+    @media screen and (max-width: 420px) {
+      flex-direction: column;
+    }
+
+    .data {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      @media screen and (max-width: 420px) {
+        width: 100%;
+      }
+      .selection-bar {
+        display: flex;
+        flex-direction: row;
+        height: 52px;
+        padding: 12px 0;
+        justify-content: space-between;
+        width: 100%;
+        background-color: $widget-base-color;
+        @media screen and (max-width: 420px) {
+          padding: 12px 0 0 0;
+        }
+
+        .selections {
+          width: 88%;
+          display: flex;
+          overflow: hidden;
+
+          &.searching {
+            .selection {
+              width: 0;
+              margin: 0;
+              &.selected {
+                width: 0;
+                margin: 0;
+                border: none;
+              }
+            }
+          }
+
+          .search-selections {
+            display: flex;
+            width: 40px;
+            height: 40px;
+            border: 1px solid $primary-color;
+            border-radius: 40px;
+            margin-left: 24px;
+            cursor: pointer;
+            transition: 0.25s width linear;
+            &.expanded {
+              width: 100%;
+            }
+
+            .search-icon-wrapper {
+              width: 30px;
+              .search-icon {
+                margin: 10px 0 0 11px;
+              }
+            }
+            .search-input {
+              width: calc(100% - 10px);
+              margin-left: 10px;
+              border-top-right-radius: 40px;
+              border-bottom-right-radius: 40px;
+              border: none;
+              font-size: 24px;
+            }
+          }
+          .selection {
+            width: 40px;
+            height: 40px;
+            background-color: $primary-color;
+            border-radius: 40px;
+            margin: 1px 0 0 16px;
+            overflow: hidden;
+            cursor: pointer;
+            &.selected {
+              border: 5px solid $secondary-color;
+              height: 30px;
+              width: 30px;
+              cursor: auto;
+            }
+            .icon {
+              height: 100%;
+              width: 100%;
+              background-size: contain;
+            }
+          }
+        }
+        .see-all {
+          font-weight: 500;
+          margin: 9px 30px 0 0;
+        }
+      }
+      .dropdown {
+        width: 100%;
+        background-color: $widget-base-color;
+        .dropdown-option-inner {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          height: 64px;
+          background-color: $tertiary-color;
+          margin: 0 24px 16px 24px;
+          padding: 0 24px;
+          border-radius: 16px;
+          .percent-change {
+            &.neg {
+              color: $invalid-color;
+            }
+            &.pos {
+              color: $gain-color;
+            }
+          }
+          .indices-index {
+            font-weight: 700;
+          }
+          .icon {
+            width: 40px;
+            height: 40px;
+            background-color: $primary-color;
+            border-radius: 40px;
+            margin: 1px 0 0 16px;
+            background-size: contain;
+          }
+        }
+      }
+      .chart {
+        display: flex;
+        flex-direction: column;
+        background-color: $widget-base-color;
+        margin-top: 16px;
+        .index {
+          display: flex;
+          justify-content: space-between;
+          @media screen and (max-width: 420px) {
+            flex-direction: column;
+          }
+          .title {
+            display: flex;
+            margin: 30px 0 0 25px;
+            .icon {
+              width: 40px;
+              height: 40px;
+              background-color: $primary-color;
+              border-radius: 40px;
+              margin: 1px 0 0 16px;
+              background-size: contain;
+            }
+            .index-title {
+              margin-left: 15px;
+              .index-name {
+                font-size: 16px;
+                font-weight: 700;
+              }
+              .index {
+                color: $secondary-color;
+                font-weight: 600;
+              }
+            }
+          }
+          .prices {
+            display: flex;
+            .price {
+              text-align: center;
+              margin: 30px 25px 0 25px;
+              font-size: 12px;
+              font-weight: 600;
+              color: $secondary-color;
+              .figure {
+                font-size: 16px;
+                color: $highlight-color;
+                &.bold {
+                  font-weight: 700;
+                }
+                &.neg {
+                  color: $invalid-color;
+                }
+                &.pos {
+                  color: $gain-color;
+                }
+              }
+            }
+          }
+        }
+        .chart-tabs {
+          display: flex;
+          margin: 30px 0 0 25px;
+          .tab {
+            padding: 7px;
+            margin: 4px;
+            cursor: pointer;
+            &.selected {
+              font-weight: 700;
+              cursor: auto;
+            }
+          }
+        }
+        .chart-content {
+          height: 375px;
+          .hoverPrice {
+            position: absolute;
+            right: 40%;
+            font-size: 32px;
+          }
+          .details {
+            margin: 20px;
+          }
+        }
+      }
+    }
+    .order {
+      display: flex;
+      flex-direction: column;
+      width: calc(33% - 78px);
+      background-color: $widget-base-color;
+      padding: 24px;
+      margin-left: 30px;
+
+      @media screen and (max-width: 420px) {
+        width: 100%;
+        margin-left: 0;
+        padding: 0;
+        background-color: $base-color;
+      }
+      .tabs {
+        @include tabs(100%, 50%, 0);
+      }
+      .order-panel-card {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 100%;
+        border: 2px solid $primary-color;
+        margin-bottom: 9px;
+        @media screen and (max-width: 420px) {
+          background-color: $widget-base-color;
+        }
+
+        &.balance-input {
+          flex-grow: 1;
+          .amount-input {
+            font-size: 40px;
+            font-weight: 700;
+            border: none;
+            text-align: center;
+            margin: 0 10px 0 25px;
+            &.invalid {
+              color: $invalid-color;
+            }
+          }
+          .quarters {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 35px;
+            @media screen and (max-width: 420px) {
+              margin-top: 15px;
+            }
+            .quarter {
+              width: 20%;
+              border: 3px solid $primary-color;
+              border-radius: 8px;
+              text-align: center;
+              font-weight: 600;
+              padding-bottom: 2px;
+            }
+          }
+        }
+
+        &.amount-received {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          .amount-text {
+            display: flex;
+            flex-direction: column;
+            padding-top: 25px;
+            .maxPurchaseable {
+              color: $secondary-color;
+              font-weight: 600;
+            }
+            .amount {
+              width: 100%;
+              height: 55px;
+              font-size: 40px;
+              font-weight: 700;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              text-align: center;
+
+              &.invalid {
+                color: $invalid-color;
+              }
+            }
+          }
+          .estimate-received {
+            display: flex;
+            justify-content: space-between;
+            margin: 0 20px 20px 20px;
+          }
+        }
+
+        span {
+          width: 100%;
+          text-align: center;
+          &.order-action {
+            margin-top: 24px;
+          }
+          &.available {
+            color: $secondary-color;
+            font-weight: 600;
+          }
+        }
+      }
+      .order-action-button {
+        height: 50px;
+        width: 100%;
+        margin-top: 5px;
+        background-color: $highlight-color;
+        color: $widget-base-color;
+        font-size: 16px;
+        font-weight: 700;
+        border: none;
+      }
+    }
+  }
+  .transaction-history {
+    display: flex;
+    flex-direction: column;
+    background-color: $widget-base-color;
+    min-height: calc(100vh - 742px);
+    overflow: hidden;
+    margin-top: 24px;
+    .txn-tabs {
+      display: flex;
+      width: 100%;
+      .tab {
+        padding: 25px;
+        cursor: pointer;
+        &.selected {
+          background-color: $primary-color;
+          font-weight: 700;
+          cursor: auto;
+        }
+      }
+    }
+    .txn-table {
+      .asset {
+        @include asset();
+      }
+    }
+  }
+}

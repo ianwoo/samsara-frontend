@@ -1,0 +1,159 @@
+@import "../global.scss";
+
+.header {
+  background-color: $base-color;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0 0 24px;
+  overflow: auto;
+
+  .mask {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: 0.125s opacity ease-out;
+    pointer-events: none;
+    z-index: 1;
+
+    &.visible {
+      opacity: 0.5;
+      background-color: #000000;
+      pointer-events: all;
+    }
+  }
+
+  .wallet-modal {
+    display: flex;
+    flex-direction: column;
+    width: calc(25% - 90px);
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    right: -25%;
+    padding: 25px 45px;
+    &.open {
+      right: 0;
+    }
+    transition: right 0.25s ease-in;
+
+    background-color: #ffffff;
+    z-index: 2;
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      .title {
+        display: flex;
+        align-items: center;
+        font-size: 23px;
+        font-weight: 700;
+        .account {
+          padding: 0 0 2px 9px;
+        }
+      }
+      .close {
+        background: none;
+        border: none;
+        font-weight: 700;
+        font-size: 23px;
+        cursor: pointer;
+      }
+    }
+    .user-profile {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 315px;
+      border: 1px solid #e5e5e5;
+      box-sizing: border-box;
+      border-radius: 8px;
+
+      .user-icon {
+        width: 64px;
+        height: 64px;
+        border-radius: 70px;
+        background-color: #000000;
+      }
+      .total-balance {
+        font-size: 12px;
+        margin-top: 16px;
+      }
+      .userSETHBalance {
+        font-size: 16px;
+        font-weight: 700;
+      }
+      .get-sETH {
+        width: calc(100% - 30px);
+        height: 50px;
+        border-radius: 8px;
+        background-color: $secondary-color;
+        border: none;
+        font-size: 16px;
+        font-weight: 700;
+        margin-top: 24px;
+      }
+      .connect-wallet {
+        width: calc(100% - 30px);
+        height: 50px;
+        border-radius: 8px;
+        color: #ffffff;
+        background-color: $highlight-color;
+        border: none;
+        font-size: 16px;
+        font-weight: 700;
+        margin-top: 16px;
+        cursor: pointer;
+      }
+    }
+    .wallet-address {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 55px;
+      border: 1px solid #e5e5e5;
+      box-sizing: border-box;
+      border-radius: 8px;
+      padding: 0 10px;
+      margin-top: 15px;
+      overflow: hidden;
+    }
+    .asset-type {
+      font-size: 16px;
+      font-weight: 700;
+      margin-top: 25px;
+    }
+    .asset {
+      @include asset();
+    }
+  }
+
+  .header-menu {
+    display: flex;
+    align-items: center;
+
+    .user-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 38px;
+      background-color: #000000;
+      cursor: pointer;
+    }
+
+    .gear-icon {
+      padding: 0 10px 0 22px;
+    }
+
+    .cycler-link {
+      background-color: $highlight-color;
+      color: #ffffff;
+      width: 155px;
+      height: 30px;
+      text-align: center;
+      padding: 8px 0 0 0;
+    }
+  }
+}

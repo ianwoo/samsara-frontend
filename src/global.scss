@@ -1,0 +1,64 @@
+@import url("https://fonts.googleapis.com/css?family=Rubik:regular,bold,italic&subset=latin,latin-ext");
+
+body {
+  font-family: "Rubik";
+}
+
+$base-color: rgba(229, 229, 229, 0.25);
+$widget-base-color: #ffffff;
+$primary-color: #e5e5e5;
+$secondary-color: rgba(0, 0, 0, 0.2);
+$tertiary-color: rgba(90, 90, 90, 0.05);
+$highlight-color: #000000;
+$invalid-color: #e46465;
+$gain-color: #71c562;
+
+@mixin tabs($width, $tabWidth, $offset) {
+  display: flex;
+  width: $width;
+  height: 40px;
+  border: 2px solid $primary-color;
+  margin: 0 0 13px $offset;
+  @media screen and (max-width: 420px) {
+    background-color: $widget-base-color;
+  }
+  .tab {
+    width: $tabWidth;
+    color: $highlight-color;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 400;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 4px;
+    &.selected {
+      background-color: $primary-color;
+      font-weight: 700;
+      cursor: auto;
+      transition: 0.25s background-color ease-in;
+    }
+  }
+}
+
+@mixin asset() {
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+  font-weight: 700;
+  margin-top: 15px;
+
+  .asset-title {
+    display: flex;
+    .asset-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 38px;
+      background-color: $secondary-color;
+      margin-right: 8px;
+    }
+    .asset-name {
+      padding-top: 3px;
+    }
+  }
+}
