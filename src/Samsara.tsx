@@ -12,6 +12,8 @@ import Partners from "./partners/Partners";
 import PriceFeed from "./pricefeed/PriceFeed";
 import Splash from "./splash/Splash";
 
+//comment
+
 function Samsara() {
   // const [connected, setConnected] = useState(false); //control state
   // const { account } = useWeb3React<Web3Provider>();
